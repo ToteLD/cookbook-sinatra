@@ -1,8 +1,10 @@
-<form>
-  Recipe's name<input ... name="recipe[name]" />
-  <br>Recipe's description<input ... name="recipe[description]" />
-  <br>Recipe's rating<input ... name="recipe[rating]" />
-  <br>Time of preparation<input ... name="recipe[prep-time]" />
+<form method="POST" action="/recipes">
+  <p>Your Recipe: <input type="text" name="name"></p>
+  <p>Describe it !: <input type="text" name="description"></p>
+  <p>Rate it !: <input type="number" name="rating" min="0" max="5"></p>
+  <p>Preparation time (in minutes) ?: <input type="number" name="prep_time" min="0"></p>
+
+  <input type="submit">
 </form>
 
 <br><p> <a href="<%=:/%>"> Back to the Cookbook. </a></p>

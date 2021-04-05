@@ -20,3 +20,8 @@ end
 get '/new' do
   erb :new
 end
+
+post '/recipes' do
+  recipe = Recipe.new(params[:name], params[:description], params[:rating], params[:prep_time])
+  @cookbook.add_recipe(recipe)
+end
