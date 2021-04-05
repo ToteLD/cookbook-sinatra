@@ -10,9 +10,14 @@ configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
 end
-@cookbook = Cookbook.new('./recipes.csv')
 
 get '/' do
-  @recipes = @cookbook.all
+  cookbook = Cookbook.new('./recipes.csv')
+
+  @recipes = cookbook.all
   erb :index
+end
+
+get '/new' do
+  erb :new
 end

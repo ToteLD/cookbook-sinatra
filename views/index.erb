@@ -1,5 +1,6 @@
-<% @recipes.each do |recipe| %>
+<% @recipes.each_with_index do |recipe, index| %>
+  <% done = recipe.done? ? "[X]" : "[ ]" %>
   <li>
-    <%= recipe %>
+    <%= done %><%= recipe.name %> - <%= recipe.description %> - <%= recipe.rating %>/5 (<%= recipe.prep_time %>)
   </li>
 <% end %>
