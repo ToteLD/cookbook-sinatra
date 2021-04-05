@@ -13,7 +13,6 @@ end
 
 get '/' do
   cookbook = Cookbook.new('./recipes.csv')
-
   @recipes = cookbook.all
   erb :index
 end
