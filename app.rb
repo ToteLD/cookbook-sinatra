@@ -22,6 +22,13 @@ get '/new' do
 end
 
 post '/recipes' do
+  @cookbook = Cookbook.new('./recipes.csv')
   recipe = Recipe.new(params[:name], params[:description], params[:rating], params[:prep_time])
   @cookbook.add_recipe(recipe)
+  redirect '/'
 end
+
+delete('/recipe') do
+
+    redirect('/')
+  end

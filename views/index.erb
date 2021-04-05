@@ -1,10 +1,14 @@
 <h1>My beautiful Cookbook</h1>
 
-
 <p><% @recipes.each_with_index do |recipe, index| %>
   <% done = recipe.done? ? "[X]" : "[ ]" %>
   <li>
     <%= done %><%= recipe.name %> - <%= recipe.description %> - <%= recipe.rating %>/5 (<%= recipe.prep_time %>)
+<form action="/recipes" method="post">
+  <input type='hidden' name='recipe_id' value='<%= recipe.id %>'>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Recipe?">
+</form>
   </li>
 <% end %>
 </p>
