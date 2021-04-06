@@ -29,6 +29,7 @@ post '/recipes' do
 end
 
 delete('/recipe') do
-
-    redirect('/')
-  end
+  @cookbook = Cookbook.new('./recipes.csv')
+  @cookbook.remove_recipe(params[:id])
+  redirect('/')
+end
